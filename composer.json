@@ -14,21 +14,33 @@
         }
     ],
 	"require": {
-        "php": "^7.0",
-        "psr/log": "^1.0"
+        "php": "~5.4 || ^7.0",
+        "psr/log": "^1.0",
+        "symfony/yaml": "*"
     },
     "require-dev": {
-		"php": ">=5.6.0",
+        "php": "~5.4 || ^7.0",
+        "ext-xml": "*",
+        "ext-xmlrpc": "*",
 		"phpunit/phpunit": "5.5.0"
 	},
     "autoload": {
-        "psr-4": { "Nixox\\": "src/Nixox" }
+      "files": ["src/Nixox/Common.php"],
+      "psr-4": {
+          "Nixox\\": "src/Nixox",
+          "Nixox\\Bundle\\": "src/Nixox/Bundle",
+          "Nixox\\Container\\": "src/Nixox/Container",
+          "Nixox\\Framework\\": "src/Nixox/Framework"
+      }
     },
 	"autoload-dev": {
-        "psr-4": {"Nixox\\": "tests/Nixox"}
-    },
-    "provide": {
-        "psr/log-implementation": "1.0.0"
+       "files": ["tests/Nixox/DummyCommon.php"],
+        "psr-4": {
+             "Nixox\\": "tests/Nixox",
+             "Nixox\\Bundle\\": "tests/Nixox/Bundle",
+             "Nixox\\Container\\": "tests/Nixox/Container",
+             "Nixox\\Framework\\": "tests/Nixox/Framework"
+        }
     },
     "extra": {
         "branch-alias": {
